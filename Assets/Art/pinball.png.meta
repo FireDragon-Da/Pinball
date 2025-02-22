@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pinball_0: -2217941832208703394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
