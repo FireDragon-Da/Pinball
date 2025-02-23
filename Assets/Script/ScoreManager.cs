@@ -1,30 +1,50 @@
 using UnityEngine;
-using TMPro; 
+using TMPro;
+using UnityEngine.SceneManagement; // 用于重新加载场景
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText; 
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText; 
     private int score = 0;
+    private int lives = 3; 
 
     void Start()
     {
-        UpdateScoreText(); 
+        UpdateUI();
     }
 
     public void AddScore(int points)
     {
         score += points;
-        UpdateScoreText();
+        UpdateUI();
     }
 
-    public void ResetScore()
+    public void LoseLife()
     {
-        score = 0;
-        UpdateScoreText();
+        lives--; 
+        UpdateUI();
+
+        if (lives <= 0)
+        {
+            GameOver();
+        }
     }
 
-    private void UpdateScoreText()
+    private void UpdateUI()
     {
         scoreText.text = "Score: " + score;
+        livesText.text = "Lives: " + lives;
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Game Over! Restarting...");
+        Invoke("RestartGame", 2f); 
+    }
+
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
 }

@@ -14,6 +14,7 @@ public class BallReset : MonoBehaviour
     {
         if (other.CompareTag("Ball")) 
         {
+            FindObjectOfType<ScoreManager>().LoseLife();
             FindObjectOfType<ScoreManager>().AddScore(-5); 
             ResetBall();
         }
