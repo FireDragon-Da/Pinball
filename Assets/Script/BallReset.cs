@@ -7,7 +7,7 @@ public class BallReset : MonoBehaviour
 
     void Start()
     {
-        startPosition = ball.position; 
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
